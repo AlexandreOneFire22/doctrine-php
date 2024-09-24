@@ -23,6 +23,26 @@ class Post
     #[ORM\Column(name: "date_creation_post",type: "datetime",nullable: false)]
     private \DateTime $createdAt;
 
+    #[ORM\Column(name: "nb_likes_post", type: 'integer')]
+    private int $nbLikes;
+
+
+    /**
+     * @return int
+     */
+    public function getNbLikes(): int
+    {
+        return $this->nbLikes;
+    }
+
+    /**
+     * @param int $nbLikes
+     */
+    public function setNbLikes(int $nbLikes): void
+    {
+        $this->nbLikes = $nbLikes;
+    }
+
     /**
      * @return int
      */
