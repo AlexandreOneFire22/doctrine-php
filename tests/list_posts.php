@@ -49,7 +49,27 @@ if ($post){
     echo "post non trouvé \n";
 }
 
+// Lister tous les posts dont le nombre de likes est superieur à un nombre donné (nbLikes)
 
+echo "liste un post via son nombre de likes \n";
+
+$nbLikes = 4;
+
+$posts =$postRepository->findBy(['nbLikes' => $nbLikes ]);
+// impossible d'utiliser l'opération > avec la méthode findBy !
+// Elle se limite uniquement à l'opérateur d'égalité '='
+
+
+
+
+
+if ($posts){
+    foreach ($posts as $post) {
+        echo $post->getTitre()."\n";
+    }
+} else {
+    echo "post non trouvé \n";
+}
 
 
 
